@@ -1,0 +1,1 @@
+A personal dashboard, as a self-guided learning process, using instructions from Claude, learning webscraping and using external modules
