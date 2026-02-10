@@ -1,0 +1,29 @@
+h1 {
+    text-align: center;
+}
+
+section {
+    width: 30%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+#weather {
+    background: #FE0B46;
+    background: linear-gradient(90deg, rgba(254, 11, 70, 1) 0%, rgba(252, 166, 148, 1) 100%);
+    color: #FFE0E2;
+}
+
+#zen {
+    background: #7B6BE8;
+    background: linear-gradient(90deg,rgba(123, 107, 232, 1) 0%, rgba(188, 93, 212, 1) 100%);
+    color: #ffe0e2
+}

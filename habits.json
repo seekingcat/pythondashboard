@@ -1,0 +1,12 @@
+{
+    "habits": [
+        {
+            "name": "Coding",
+            "dates_completed":[]
+        },
+        {
+            "name": "Language",
+            "dates_completed":[]
+        }
+    ]
+}

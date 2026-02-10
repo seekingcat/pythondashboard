@@ -4,14 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Dashboard</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
 </head>
 <body>
     <h1>Dahsboard</h1>
-    <h2>{{data.current_time}}</h2>
-    <p>{{data.current_date}}</p>
-    <p>In the sky: {{data.description}}</p>
-    <p>Temperature is {{data.temp}} degrees celsius, feels like {{data.feels}}</p>
-    <h2>Moment of Zen</h2>
-    <p>{{data.quote}} - {{data.author}}</p>
+    <section id="today">
+        <h2>Today</h2>
+        <h3>{{data.current_date}}</h3>
+        <h3>{{data.current_time}}</h3>
+    </section>
+    <section id="weather">
+        <h2>Forecast</h2>
+        <p>In the sky: {{data.description}}</p>
+        <p>Temperature is {{data.temp}} degrees celsius, feels like {{data.feels}}</p>
+    </section>
+    <section id="zen">
+        <h2>Moment of Zen</h2>
+        <blockquote>{{data.quote}} - {{data.author}}</blockquote>
+    </section>
+    <section id="stock">
+        <h2>Stock Watcher</h2>
+        <p>Stock Name: {{data.stock_name}}</p>
+        <p>Date of update: {{data.date}}</p>
+        <p>Opening Price: ${{data.open}}</p>
+        <p>Closing Price: ${{data.close}}</p>
+    </section>
+    <section>
+        <h2>Habit Streaks</h2>
+        <ul>
+            {% for habit in data.habits %}
+                <li>{{habit.name}}: {{habit.dates_completed|length}} days tracked</li>
+            {% endfor %}
+        </ul>
+    </section>
 </body>
 </html>
