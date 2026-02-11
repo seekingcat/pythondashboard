@@ -27,3 +27,12 @@ h2, h3 {
     background: linear-gradient(90deg,rgba(123, 107, 232, 1) 0%, rgba(188, 93, 212, 1) 100%);
     color: #ffe0e2
 }
+
+li {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+button {
+    margin-left: 10px;
+}

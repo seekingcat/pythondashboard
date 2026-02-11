@@ -25,7 +25,7 @@
     <section id="stock">
         <h2>Stock Watcher</h2>
         <p>Stock Name: {{data.stock_name}}</p>
-        <p>Date of update: {{data.date}}</p>
+        <p>Date of update: {{data.stock_date}}</p>
         <p>Opening Price: ${{data.open}}</p>
         <p>Closing Price: ${{data.close}}</p>
     </section>
@@ -33,7 +33,10 @@
         <h2>Habit Streaks</h2>
         <ul>
             {% for habit in data.habits %}
+            <form action="" method="post">
                 <li>{{habit.name}}: {{habit.dates_completed|length}} days tracked</li>
+                <button type="submit">Track</button>
+            </form>
             {% endfor %}
         </ul>
     </section>
