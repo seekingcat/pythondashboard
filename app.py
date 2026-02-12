@@ -18,9 +18,6 @@ weather = res.json()
 quote_res = requests.get(quote_url)
 quotes = quote_res.json()
 
-stocks_res = requests.get(stock_url)
-stocks = stocks_res.json()
-stock_date = stocks['Meta Data']['3. Last Refreshed']
 
 def load_habits():
     with open('habits.json', 'r') as f:
@@ -56,10 +53,6 @@ def dashboard():
             'feels': weather['main']['feels_like'],
             'quote':quotes[0]['q'],
             'author': quotes[0]['a'],
-            'stock_date':stocks['Meta Data']['3. Last Refreshed'],
-            'stock_name': stocks['Meta Data']['2. Symbol'],
-            'open': stocks['Time Series (Daily)'][stock_date]['1. open'],
-            'close': stocks['Time Series (Daily)'][stock_date]['4. close'],
             'habits': habits_data['habits']
         }
 
