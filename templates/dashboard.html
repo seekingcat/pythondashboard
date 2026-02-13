@@ -7,31 +7,33 @@
     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
 </head>
 <body>
-    <h1>Dahsboard</h1>
-    <section id="today">
-        <h2>Today</h2>
-        <h3>{{data.current_date}}</h3>
-        <h3>{{data.current_time}}</h3>
-    </section>
-    <section id="weather">
-        <h2>Forecast</h2>
-        <p>In the sky: {{data.description}}</p>
-        <p>Temperature is {{data.temp}} degrees celsius, feels like {{data.feels}}</p>
-    </section>
-    <section id="zen">
-        <h2>Moment of Zen</h2>
-        <blockquote>{{data.quote}} - {{data.author}}</blockquote>
-    </section>
-    <section>
-        <h2>Habit Streaks</h2>
-        <ul>
-            {% for habit in data.habits %}
-            <form action="" method="post">
-                <li>{{habit.name}}: {{habit.dates_completed|length}} days tracked</li>
-                <button type="submit">Track</button>
-            </form>
-            {% endfor %}
-        </ul>
-    </section>
-</body>
-</html>
+    <div id="container">
+        <h1>Dahsboard</h1>
+        <section id="today">
+            <h2>Today</h2>
+            <h3>{{data.current_date}}</h3>
+            <h3>{{data.current_time}}</h3>
+        </section>
+        <section id="weather">
+            <h2>Forecast</h2>
+            <p>In the sky: {{data.description}}</p>
+            <p>Temperature is {{data.temp}} degrees celsius, feels like {{data.feels}}</p>
+        </section>
+        <section id="zen">
+            <h2>Moment of Zen</h2>
+            <blockquote>{{data.quote}} - {{data.author}}</blockquote>
+        </section>
+        <section>
+            <h2>Habit Streaks</h2>
+            <ul>
+                {% for habit in data.habits %}
+                <form action="" method="post">
+                    <li>{{habit.name}}: {{habit.dates_completed|length}} days tracked</li>
+                    <button type="submit">Track</button>
+                </form>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+    </body>
+    </html>
