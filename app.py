@@ -1,7 +1,7 @@
 import config
 import json
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from datetime import datetime, timedelta
 import requests
 
@@ -37,7 +37,8 @@ def calculate_streak(dates_completed):
     sorted_dates = sorted(dates_completed, reverse=True)
     today = datetime.now().date().isoformat()
 
-    return 0
+    dates_completed.appened(today)
+    return len(dates_completed)
 
 
 
@@ -57,6 +58,11 @@ def dashboard():
         }
 
     return render_template('dashboard.html', data=data)
+
+@app.route("/track", methods=['POST'])
+def track():
+    if request.method == 'POST':
+        calculate_streak()
 
 if __name__ == '__main__':
     app.run(debug=True)
