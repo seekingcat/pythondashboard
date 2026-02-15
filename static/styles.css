@@ -1,14 +1,18 @@
 #container {
     width: 60%;
-
+    margin: 10px auto;
 }
 
 h1 {
     text-align: center;
 }
 
+.row {
+    display: flex;
+}
+
 section {
-    width: 25%;
+    width: 40%;
     border: 1px solid black;
     border-radius: 10px;
     margin: 10px auto;
@@ -34,10 +38,9 @@ h2, h3 {
 }
 
 li {
-    display: inline-block;
     margin-bottom: 10px;
+    list-style-type: none;
 }
 
-button {
-    margin-left: 10px;
-}
+
+

@@ -1,12 +1,19 @@
 {
-    "habits": [
-        {
-            "name": "Coding",
-            "dates_completed":[]
-        },
-        {
-            "name": "Language",
-            "dates_completed":[]
-        }
-    ]
+  "habits": [
+    {
+      "name": "Coding",
+      "dates_completed": [
+        "2026-02-10",
+        "2026-02-11",
+        "2026-02-12",
+        "2026-02-15"
+      ]
+    },
+    {
+      "name": "Language",
+      "dates_completed": [
+        "2026-02-15"
+      ]
+    }
+  ]
 }
