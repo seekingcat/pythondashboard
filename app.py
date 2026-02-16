@@ -1,15 +1,15 @@
 import os
-import config
 import json
+from dotenv import load_dotenv
 
 from flask import Flask, render_template, request, redirect, url_for
 from datetime import datetime, timedelta
 import requests
 
 app = Flask(__name__)
+load_dotenv()
 
-
-url = config.weather_api
+url = os.getenv(weather_api)
 quote_url = 'https://zenquotes.io/api/quotes/random'
 # stock_url = config.stocks_api
 
