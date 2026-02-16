@@ -1,3 +1,4 @@
+import os
 import config
 import json
 
@@ -94,4 +95,4 @@ def mark_complete(habit_name):
     return redirect(url_for('dashboard'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
