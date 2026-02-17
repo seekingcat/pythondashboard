@@ -9,7 +9,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-weather_url = os.getenv("weather_api")
+weather_url = os.getenv('WEATHER_API')
 quote_url = 'https://zenquotes.io/api/quotes/random'
 
 res = requests.get(weather_url)
