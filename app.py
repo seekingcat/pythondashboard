@@ -4,8 +4,10 @@ from dotenv import load_dotenv
 
 from flask import Flask, render_template, redirect, url_for
 from datetime import datetime, timedelta
+from database import get_all_habits, mark_habit_complete, init_db
 import requests
 load_dotenv()
+init_db()
 
 app = Flask(__name__)
 
@@ -19,9 +21,9 @@ quote_res = requests.get(quote_url)
 quotes = quote_res.json()
 
 
-def load_habits():
-    with open('habits.json', 'r') as f:
-        return json.load(f)
+# def load_habits():
+#     with open('habits.json', 'r') as f:
+#         return json.load(f)
     
 def calculate_streak(dates_completed):
     if not dates_completed:
@@ -53,9 +55,9 @@ def calculate_streak(dates_completed):
 
 @app.route('/')
 def dashboard():
-    habits_data = load_habits()
+    habits = get_all_habits()
 
-    for habit in habits_data['habits']:
+    for habit in habits:
         habit['streak'] = calculate_streak(habit['dates_completed'])
 
     data = {
@@ -66,29 +68,17 @@ def dashboard():
             'feels': weather['main']['feels_like'],
             'quote':quotes[0]['q'],
             'author': quotes[0]['a'],
-            'habits': habits_data['habits']
+            'habits': habits
         }
 
     return render_template('dashboard.html', data=data)
 
-@app.route('/complete/<habit_name>', methods=['POST'])
-def mark_complete(habit_name):
-    # Load current habits
-    habits_data = load_habits()
-    
+@app.route('/complete/<int:habit_id>', methods=['POST'])
+def mark_complete(habit_id):
     # Get today's date as a string
     today = datetime.now().date().isoformat()
     
-    # Find the habit and add today's date if not already there
-    for habit in habits_data['habits']:
-        if habit['name'] == habit_name:
-            if today not in habit['dates_completed']:
-                habit['dates_completed'].append(today)
-            break
-    
-    # Save back to file
-    with open('habits.json', 'w') as f:
-        json.dump(habits_data, f, indent=2)
+    mark_habit_complete(habit_id, today)
     
     # Redirect back to dashboard
     return redirect(url_for('dashboard'))

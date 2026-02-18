@@ -37,9 +37,12 @@ h2, h3 {
     color: #ffe0e2
 }
 
+
+
 li {
     margin-bottom: 10px;
     list-style-type: none;
+    display: flex;
 }
 
 

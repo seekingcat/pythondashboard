@@ -33,7 +33,7 @@
                 <ul>
                     {% for habit in data.habits %}
                     <li>{{habit.name}}: 🔥 {{habit.streak}} days tracked</li>
-                    <form action="/complete/{{habit.name}}" method="POST" style="display: inline;">
+                    <form action="/complete/{{habit.id}}" method="POST">
                         <button type="submit">✔️ Done Today</button>
                     </form>
                     {% endfor %}
